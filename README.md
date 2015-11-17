@@ -22,9 +22,10 @@ __ディレクトリレイアウト__
  ↓
  ---✂︎---------------------
  ├── [filelist].txt
- |    # ファイルリストで指定されたファイルのみコピーしてくる
+ ↓    # ファイルリストで指定されたファイルのみコピーしてくる
+ |    # 新規のファオルダは、[filelist]の名前に基づいて生成する
  ↓
- └ → diff@[filelist]/
+ └ → diff@[filelist]
      └── public
          ├── html
          |   └── index.html
@@ -32,7 +33,7 @@ __ディレクトリレイアウト__
              └── README.txt
 ```
 
-__ファイルリスト__
+__[filelist].txt__
 
 ```txt
 public/html/index.html
