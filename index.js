@@ -2,14 +2,14 @@
 
 const fs = require('fs');
 const path = require('path');
+const del = require('del');
 const ext = '.txt';
 const prefix = 'diff@';
-const pwd = __dirname;
-
+const pwd = process.cwd();
 
 module.exports = (f) => {
   //let timestamp = +(new Date()); // タイムスタンプを保存
-  let txt = checkExt(f); // 拡張子付きのファイル名 (*.txt)
+  let txt = checkExt(f); // 拡張子付きのファイル名 (*.txt)
   let name = txt.replace(/(^[\w\d_-]+)\.(?:[\w]+)$/, '$1'); // 拡張子なしのファイル名
   let dest = path.join(pwd, ([prefix, name].join(''))); // 保存先フォルダ名を作成
   let list = makeFileList(loadFile(txt)); // ファイルリストの配列を生成
@@ -35,14 +35,14 @@ function makeFileList(txt) {
  * @param {Function} done
  */
 function exec(filelist, dest, done) {
+
   // 保存先ディレクトリーの作成
   fs.mkdir(dest, (err) => {
     if (err && err.code === 'EEXIST') {
       // すでにディレクトリーがある場合
       //console.log('[unlinksync]',dest);
       //fs.unlinkSync(dest);
-    } else {
-
+      del.sync(dest + '/**');
     }
     return makeFiles(filelist, dest) && done();
   });
@@ -71,7 +71,7 @@ function makeFiles(files, base) {
 /*
  * Make File
  * ファイルのコピーを配置
- * - 相対パスを使う
+ * - 相対パスを受け取る
  * @param {String} src
  * @param {String} dest
  * @return
@@ -82,7 +82,28 @@ function makeFile(src, dest) {
 
   let read = fs.createReadStream(src);
   let write = fs.createWriteStream(dest);
-  return read.pipe(write);
+
+  read.on('data', (data) => {
+    if (write.write(data)) {
+      read.pause();
+    }
+  });
+
+  write.on('drain', () => {
+    read.resume();
+  });
+
+  read.on('close', () => {
+    read.pipe(write);
+  });
+
+  read.on('error', (e) => {
+    //console.log('[read error]', e);
+  });
+
+  write.on('error', (e) => {
+    //console.log('[write error]', e);
+  });
 }
 
 
