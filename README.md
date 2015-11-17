@@ -5,13 +5,6 @@
 
 ファイルリストで指定したファイルをコピーして、新しいフォルダに移動する。
 
-__ファイルリスト__
-
-```txt
-public/html/index.html
-public/css/style.css
-public/doc/README.txt
-```
 
 __ディレクトリレイアウト__
 
@@ -27,19 +20,28 @@ __ディレクトリレイアウト__
  ↓   └── doc
  |       └── README.txt
  ↓
- ---[copy]---------------
+ ---✂︎---------------------
  # ファイルリストで指定されたファイルのみコピーしてくる
  |
+ ├── [filelist].txt
  ↓
- └ → diff@[keyword]/public
-     ├── html
-     |   └── index.html
-     └── doc
-         └── README.txt
+ └ → diff@[filelist]/
+     └── public
+         ├── html
+         |   └── index.html
+         └── doc
+             └── README.txt
 ```
 
+__ファイルリスト__
 
-## 記述
+```txt
+public/html/index.html
+public/css/style.css
+public/doc/README.txt
+```
+
+__JavaScript__
 
 ```js
 const diffmk = require('node-diffmk');
