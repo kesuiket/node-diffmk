@@ -7,7 +7,7 @@ const ext = '.txt';
 const prefix = 'diff@';
 const pwd = process.cwd();
 
-module.exports = (f) => {
+module.exports = (f /*, opt */) => {
   //let timestamp = +(new Date()); // タイムスタンプを保存
   let txt = checkExt(f); // 拡張子付きのファイル名 (*.txt)
   let name = txt.replace(/(^[\w\d_-]+)\.(?:[\w]+)$/, '$1'); // 拡張子なしのファイル名

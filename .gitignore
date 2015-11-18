@@ -1,3 +1,5 @@
 .*
 !.gitignore
 node_modules/*
+*/dist/*
+release-20151117.txt
