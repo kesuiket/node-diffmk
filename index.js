@@ -21,7 +21,8 @@ module.exports = (f /*, opt */) => {
 
 /*
  * Make File List
- * テキスト
+ * テキストのファイルリストを改行で区切り配列で返す
+ * 空文字の行は除外する
  * @param {String} txt
  * @return {Array}
  */
@@ -33,15 +34,15 @@ function makeFileList(txt) {
 
 /*
  * Exec
+ * - 保存先のルートフォルダを生成し、ファイル生成の指示を出す
  * @param {Array} list
  * @param {String} dest
  */
 function exec(list, dest) {
-
-  // 保存先ディレクトリーの作成
-  fs.mkdir(dest, (err) => {
+  // 保存先フォルダの作成
+  fs.mkdir(dest, err => {
     if (err && err.code === 'EEXIST') {
-      // すでにディレクトリーがある場合は一旦削除
+      // すでにフォルダがある場合は一旦削除
       del.sync(dest + '/**');
     }
     return makeFiles(list, dest);
@@ -63,8 +64,8 @@ function check(list) {
 
 /*
  * Check Exists files
- * ファイルリストで指定されたパスにファイルが存在しているかを確認します
- * 1つでも存在しないファイルがあれば、`false` を返します
+ * - ファイルリストで指定されたパスにファイルが存在しているかを確認します
+ * - 1つでも存在しないファイルがあれば、`false` を返す
  * @param {Array} list
  * @return {Boolean}
  */
@@ -92,6 +93,8 @@ function checkExsitsFiles(list) {
 
 /*
  * Make files
+ * - ファイルをコピーして配置する
+ * - ファイルを配置するためのフォルダを用意する
  * @param {Array} files
  */
 function makeFiles(files, base) {
@@ -100,7 +103,7 @@ function makeFiles(files, base) {
     let dest = path.join(base, src);
     let dir = path.relative(pwd, dest);
 
-    makeDirs(dir); // ディレクトリーを用意
+    makeDirs(dir); // フォルダを用意
     makeFile(src, dest); // ファイルをコピー
     return ;
   });
@@ -150,38 +153,40 @@ function makeFile(src, dest) {
 
 /*
  * Make dirs
- * 必要となるディレクトリーを作成する
- * 相対パスを受け取る
+ * - パスを分解し段階的なパスのリストを生成し、
+ * - 作成したパスのリストに基づいてフォルダを生成する
+ * - 相対パスを受け取る
  * @param {String} relpath
  */
 function makeDirs(relpath) {
   let dirs = relpath.split('/');
-  let steps = makeDirList(dirs);
+  let steps = makeDirList(dirs);// 段階的なパスのリストを受け取る
   return steps.map(dir => makeDir(dir));
 }
 
 
 /*
  * Make Dir
- * ディレクトリーの作成
- * 相対パスを受け取る
+ * - フォルダを作成する
+ * - 相対パスを受け取る
  * @param {String} relpath
  * @return {Boolean}
  */
 function makeDir(relpath) {
+  let there = false;
   try {
     fs.mkdirSync(relpath);
   } catch (err) {
-    //console.log('[makeDir:error] ', err);
-    return true;
+    there = true;
   }
-  return false;
+
+  return there;
 }
 
 
 /*
  * Make Dir List
- * パスから段階的なディレクトリーリストを生成
+ * - パスから段階的なフォルダリストを生成
  * < aaa/bbb/ccc
  * > [aaa, aaa/bbb, aaa/bbb/ccc]
  * @param {Array} dirs
@@ -223,7 +228,7 @@ function loadFile(relfile) {
  */
 function clearner(log, dest) {
   return function() {
-    // ファイルリストを README として保存先ディレクトリに出力
+    // ファイルリストを README として保存先フォルダに出力
     makeFile(log, path.join(dest, 'README' + ext));
     return console.log('[ Completed! ]');
   };
