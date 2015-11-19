@@ -12,11 +12,21 @@
 あった場合は処理されず、例外を出力します
 
 
+## 例
+
+__ファイルリスト__
+
+```txt
+public/html/index.html
+public/css/style.css
+public/doc/README.txt
+```
+
 __ディレクトリレイアウト__
 
 ```
 @current
- ├ ← public
+ ├ ← public // <- コピー元のファイル群の例
  ↓   ├── html
  |   |   ├── index.html
  ↓   |   ├── about.html
@@ -27,24 +37,14 @@ __ディレクトリレイアウト__
  |       └── README.txt
  ↓
  ---✂︎---------------------
- ├── [filelist].txt
- ↓    # ファイルリストで指定されたファイルのみコピーしてくる
- |    # 新規のフォルダ名は、[filelist]の名前に基づいて生成する
+ ├── [filelist].txt // <- 必要なファイル群を指定するテキストファイル
  ↓
- └ → diff@[filelist]
+ └ → diff@[filelist] // <- 新規のフォルダ名は、[filelist]の名前に基づいて生成する
      └── public
          ├── html
          |   └── index.html
          └── doc
              └── README.txt
-```
-
-__[filelist].txt__
-
-```txt
-public/html/index.html
-public/css/style.css
-public/doc/README.txt
 ```
 
 __JavaScript__
