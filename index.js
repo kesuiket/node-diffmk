@@ -15,37 +15,78 @@ module.exports = (f /*, opt */) => {
   let list = makeFileList(loadFile(txt)); // ファイルリストの配列を生成
   let done = clearner(txt, dest);
 
-  return exec(list, dest, done);
+  return check(list) && exec(list, dest) && done();
 };
 
 
 /*
  * Make File List
+ * テキスト
  * @param {String} txt
+ * @return {Array}
  */
 function makeFileList(txt) {
   let list = txt.split(/\r\n|\n|\r/);
   return list.filter(a => a !== '');
 }
 
+
 /*
  * Exec
- * @param {Array} filelist
+ * @param {Array} list
  * @param {String} dest
- * @param {Function} done
  */
-function exec(filelist, dest, done) {
+function exec(list, dest) {
 
   // 保存先ディレクトリーの作成
   fs.mkdir(dest, (err) => {
     if (err && err.code === 'EEXIST') {
-      // すでにディレクトリーがある場合
-      //console.log('[unlinksync]',dest);
-      //fs.unlinkSync(dest);
+      // すでにディレクトリーがある場合は一旦削除
       del.sync(dest + '/**');
     }
-    return makeFiles(filelist, dest) && done();
+    return makeFiles(list, dest);
   });
+
+  return true;
+}
+
+
+/*
+ * Check
+ * Exec 前の事前チェック
+ * @param {Array}  list
+ */
+function check(list) {
+  return checkExsitsFiles(list);
+}
+
+
+/*
+ * Check Exists files
+ * ファイルリストで指定されたパスにファイルが存在しているかを確認します
+ * 1つでも存在しないファイルがあれば、`false` を返します
+ * @param {Array} list
+ * @return {Boolean}
+ */
+function checkExsitsFiles(list) {
+  let tmp = [];
+  let errors = false;
+
+  list.map(a => {
+    try {
+      fs.openSync(a, 'r');
+    } catch (e) {
+      errors = true;
+      tmp.push(a);
+    }
+  });
+
+  if (errors) {
+    console.error('存在しないファイルが指定されています');
+    console.error(tmp.join('\n'));
+  }
+
+  return !errors;
 }
 
 

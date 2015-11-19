@@ -1,6 +1,6 @@
 'use strict';
 
-let diff = require('../index');
+let diffmk = require('../index');
 
-diff('filelist');
+//diffmk('filelist');
 //console.log(diff);
