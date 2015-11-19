@@ -2,5 +2,5 @@
 
 let diffmk = require('../index');
 
-//diffmk('filelist');
+diffmk('filelist');
 //console.log(diff);
