@@ -1,6 +1,6 @@
 {
   "name": "node-diffmk",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "差分ファイルを生成するライブラリ",
   "main": "index.js",
   "scripts": {
