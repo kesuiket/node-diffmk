@@ -41,28 +41,28 @@ __ディレクトリレイアウト__
 
 ```
 @current
- ├ ← public // <- コピー元のファイル群の例
- ↓   ├── html
- |   |   ├── index.html
- ↓   |   ├── about.html
- |   |   └── access.html
- ↓   ├── css
- |   |   └── style.css
- ↓   └── doc
- |       └── README.txt
+ ├─┬ public // <- コピー元のファイル群の例
+ ↓ ├─┬ html
+ │ │ ├──  index.html
+ ↓ │ ├── about.html
+ │ │ └── access.html
+ ↓ ├─┬ css
+ │ │ └── style.css
+ ↓ ├── doc
+ │ └── README.txt
  ↓
  ---✂︎---------------------
- |
+ │
  ├── [filelist].txt // <- 必要なファイル群を指定するテキストファイル
- |
+ │
  ---✂︎---------------------
  ↓
- └ → diff@[filelist] // <- 新規のフォルダ名は、[filelist]の名前に基づいて生成する
-     └── public
-         ├── html
-         |   └── index.html
-         └── doc
-             └── README.txt
+ └─┬ diff@[filelist] // <- 新規のフォルダ名は、[filelist]の名前に基づいて生成する
+   └─┬ public
+     ├─┬ html
+     │ └── index.html
+     ├── doc
+     └── README.txt
 ```
 
 
