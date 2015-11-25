@@ -1,6 +1,6 @@
 .*
 !.gitignore
 node_modules/*
-*/dist/*
+test/dist/*
+test/diff*
 release-20151117.txt
-diff@release-20151117
