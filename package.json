@@ -1,6 +1,6 @@
 {
   "name": "node-diffmk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "差分ファイルを生成するライブラリ",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,8 @@
   },
   "author": "walfo",
   "license": "MIT",
-  "devDependencies": {
-    "del": "^2.1.0"
+  "dependencies": {
+    "del": "^2.1.0",
+    "lodash": "^3.10.1"
   }
 }
