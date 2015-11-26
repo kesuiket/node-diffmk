@@ -2,7 +2,7 @@
 
 for FILE in "$@"
 do
-  if [ ! -e ${FILE} ]; then
+  if [ ! -e $FILE ]; then
     mkdir ${FILE}
   else
     :
