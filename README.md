@@ -1,4 +1,4 @@
-# node-picksave
+# node-pickfile
 
 選んだファイルをコピーして新しいパッケージを作成する  
 (pick files and make new package)
