@@ -33,7 +33,9 @@ __JavaScript__
 
 ```js
 var pick = require('node-pickfile'); // ライブラリを読み込む
-pick('release-20150101'); // ファイルリストのファイル名を指定
+pick('1.0.0', { // ファイルリストのファイル名を指定
+  prefix: 'release@'
+});
 ```
 
 __ディレクトリレイアウト__
