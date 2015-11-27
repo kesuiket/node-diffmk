@@ -33,7 +33,7 @@ __JavaScript__
 
 ```js
 var pick = require('node-pickfile'); // ライブラリを読み込む
-pick('1.0.0', { // ファイルリストのファイル名を指定
+pick('1.0.0.txt', { // ファイルリストのファイル名を指定
   prefix: 'release@'
 });
 ```

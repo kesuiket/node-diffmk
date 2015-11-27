@@ -12,7 +12,7 @@ const ext = require('./lib/extname');
 
 module.exports = (blueprint, customize) => {
   let option = _.merge(defalts, (customize || {}));
-  let name = ext(blueprint).rm();// 拡張子を除外した名前
+  let name = ext(blueprint).rm(); // 拡張子を除外した名前
   let dest = [option.prefix, name].join(''); // 保存先フォルダ名
   let api = init(blueprint, dest, cwd);
 
