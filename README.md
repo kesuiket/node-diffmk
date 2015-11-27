@@ -1,6 +1,6 @@
 # node-pickfile
 
-選んだファイルをコピーして新しいパッケージを作成する
+選んだファイルをコピーして新しいパッケージを作成する  
 (pick files and make new package)
 
 ## 概要
