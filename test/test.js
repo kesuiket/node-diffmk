@@ -14,3 +14,11 @@ pick('1.0.1.txt', {
   prefix: 'release@'
 });
 // -> release@1.0.1/~
+
+
+// ファイルリストが他のディレクトリ下にある場合
+pick('note/list-1.0.1.txt', {
+  prefix: 'note@'
+});
+
+// -> note@list-1.0.1/~
