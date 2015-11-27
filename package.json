@@ -1,7 +1,7 @@
 {
-  "name": "node-diffmk",
-  "version": "0.0.8",
-  "description": "差分ファイルを生成するライブラリ",
+  "name": "node-pickfile",
+  "version": "0.0.9",
+  "description": "選んだファイルをコピーして新しいパッケージを作成する",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
