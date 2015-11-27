@@ -1,21 +1,20 @@
 'use strict';
 
 const _ = require('lodash');
-const pwd = process.cwd();
+const cwd = process.cwd();
+const defalts = require('./lib/option');
 const init = require('./lib/init');
-const def = require('./lib/option');
 const make = require('./lib/make');
 const confirm = require('./lib/confirm');
 const save = require('./lib/save');
 const done = require('./lib/done');
-const fn = require('./lib/func');
+const ext = require('./lib/extname');
 
-module.exports = (file, opt) => {
-  let option = _.merge(def, (opt || {}));
-  let text = fn.addExt(file, '.txt'); // 拡張子付きのファイル名
-  let name = fn.rmExt(text); // 拡張子なしのファイル名
+module.exports = (blueprint, customize) => {
+  let option = _.merge(defalts, (customize || {}));
+  let name = ext(blueprint).rm();// 拡張子を除外した名前
   let dest = [option.prefix, name].join(''); // 保存先フォルダ名
-  let api = init(text, dest, pwd);
+  let api = init(blueprint, dest, cwd);
 
   return api(make, confirm, save, done);
 };

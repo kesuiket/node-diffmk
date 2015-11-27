@@ -1,6 +1,6 @@
 {
   "name": "node-pickfile",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "description": "選んだファイルをコピーして新しいパッケージを作成する",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,8 @@
   "author": "walfo",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "meta-countup": "^0.1.1"
   },
   "directories": {
     "test": "test"

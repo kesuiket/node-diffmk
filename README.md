@@ -1,4 +1,4 @@
-# node-pickfile
+# node-picksave
 
 選んだファイルをコピーして新しいパッケージを作成する  
 (pick files and make new package)
@@ -32,8 +32,8 @@ public/doc/README.txt
 __JavaScript__
 
 ```js
-var mkcp = require('node-pickfile'); // ライブラリを読み込む
-mkcp('release-20150101'); // ファイルリストのファイル名を指定
+var pick = require('node-pickfile'); // ライブラリを読み込む
+pick('release-20150101'); // ファイルリストのファイル名を指定
 ```
 
 __ディレクトリレイアウト__
@@ -72,5 +72,5 @@ $CWD/
 - [x] 保存先ルートディレクトリを作成する際、既に存在する場合は一旦削除する
 - [ ] オプションから任意の環境を指定する
     - [ ] `basedir`: 基準となるフォルダ (デフォルト: カレントディレクトリ)
-    - [x] `prefix`: 新規フォルダのフォルダ名の接頭辞(デフォルト: `diff@`)
+    - [x] `prefix`: 新規フォルダのフォルダ名の接頭辞(デフォルト: `pkg@`)
 - [x] 処理後に確認のためコピー後のファイルサイズを取得しログに出力する `> README`

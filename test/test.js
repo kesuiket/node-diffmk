@@ -1,4 +1,7 @@
 'use strict';
 
 let pick = require('../index');
-pick('filelist');
+
+pick('filelist.txt', {
+  prefix: 'release@'
+});
