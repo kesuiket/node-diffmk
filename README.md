@@ -32,11 +32,13 @@ public/doc/README.txt
 __JavaScript__
 
 ```js
-var pick = require('node-pickfile'); // ライブラリを読み込む
-pick('1.0.0.txt', { // ファイルリストのファイル名を指定
-  prefix: 'release@'
+var pick = require('node-pickfile'); // import module
+pick('1.0.0.txt', {     // <
+  prefix: 'release@',
+  savedir: 'pkg'        // > pkg/release@1.0.0/~
 });
 ```
+
 
 __ディレクトリレイアウト__
 
