@@ -1,0 +1,5 @@
+dist/arataahw/index.html
+dist/arataahw/components.txt
+dist/arataahw/pic/05_01.jpg
+dist/arataahw/pic/05_02.jpg
+dist/arataahw/pic/05_03---.jpg

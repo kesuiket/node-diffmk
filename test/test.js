@@ -10,7 +10,6 @@ pick('list-1.0.1.txt', {
 });
 
 
-
 // ファイル名に拡張子がなくドットが含まれる場合
 // release@1.0.1/~
 pick('1.0.1.txt', {
@@ -18,9 +17,15 @@ pick('1.0.1.txt', {
 });
 
 
-
 // ファイルリストが他のディレクトリ下にある場合
 // note@list-1.0.1/~
 pick('note/list-1.0.1.txt', {
   prefix: 'note@'
+});
+
+
+// 存在しないファイルへのパスが含まれている場合（エラー）
+// note@list-1.0.1/~
+pick('non-exists.txt', {
+  prefix: 'error@'
 });
