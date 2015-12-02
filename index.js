@@ -16,5 +16,5 @@ module.exports = (blueprint, customize) => {
   let name = path.basename(blueprint, '.txt');
   let dest = path.join(option.savedir, [option.prefix, name].join(''));
   let api = init(blueprint, dest, cwd);
-  return api(make, confirm, save, done);
+  return api(make, confirm, save, done(name));
 };
