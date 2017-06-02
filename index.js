@@ -11,10 +11,9 @@ const save = require('./lib/save');
 const done = require('./lib/done');
 
 module.exports = (blueprint, customize) => {
-
   let option = _.merge({}, defaults, (customize || {}));
   let name = path.basename(blueprint, '.txt');
-  let dest = path.join(option.savedir, [option.prefix, name].join(''));
-  let api = init(blueprint, dest, cwd);
+  let dest = path.join([option.prefix, name].join(''));
+  let api = init(blueprint, dest, cwd, option.savedir);
   return api(make, confirm, save, done(name));
 };
