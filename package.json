@@ -1,10 +1,10 @@
 {
   "name": "node-pickfile",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "選んだファイルをコピーして新しいパッケージを作成する",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/test.js"
   },
   "author": "walfo",
   "license": "MIT",
