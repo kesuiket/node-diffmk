@@ -1,5 +1,6 @@
-dist/arataahw/index.html
-dist/arataahw/components.txt
-dist/arataahw/pic/05_01.jpg
-dist/arataahw/pic/05_02.jpg
-dist/arataahw/pic/05_03---.jpg
+# 存在しないファイルが含まれています
+test/public/images/jiba.jpg
+test/public/html/index.html
+test/public/css/style.css
+test/public/doc/README.txt
+test/public/pic/05_01.jpg

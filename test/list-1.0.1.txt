@@ -1,4 +1,6 @@
-public/images/jiba.jpg
-public/html/index.html
-public/css/style.css
-public/doc/README.txt
+# 空行が含まれます
+test/public/images/jiba.jpg
+test/public/html/index.html
+test/public/css/style.css
+
+test/public/doc/README.txt
