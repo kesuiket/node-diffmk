@@ -1,6 +1,6 @@
 {
   "name": "node-pickfile",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "選んだファイルをコピーして新しいパッケージを作成する",
   "main": "index.js",
   "scripts": {
@@ -8,16 +8,16 @@
   },
   "author": "walfo",
   "license": "MIT",
-  "dependencies": {
-    "chalk": "^1.1.1",
-    "lodash": "^3.10.1",
-    "meta-countup": "^0.1.1",
-    "path-breadcrumb": "^1.0.1"
-  },
+  "dependencies": {},
   "directories": {
     "test": "test"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chalk": "^2.3.2",
+    "lodash": "^4.17.5",
+    "meta-countup": "^0.1.1",
+    "path-breadcrumb": "^1.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kesuiket/node-pickfile.git"

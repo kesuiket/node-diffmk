@@ -1,7 +1,7 @@
 'use strict';
 
 const cwd = process.cwd()
-const merge = require('lodash/merge')
+const _ = require('lodash')
 const path = require('path')
 const defaults = require('./lib/option')
 const init = require('./lib/init')
@@ -16,7 +16,7 @@ const done = require('./lib/done')
  * @return {Function}
  */
 module.exports = (listFile, customize = {}) => {
-  const options = merge({}, defaults, (customize))
+  const options = _.merge({}, defaults, (customize))
   const filename = path.basename(listFile, '.txt')
   const dest = path.join([options.prefix, filename].join(''))
   const api = init(listFile, dest, cwd, options.savedir)
