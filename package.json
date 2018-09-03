@@ -9,14 +9,9 @@
   "author": "walfo",
   "license": "MIT",
   "dependencies": {},
-  "directories": {
-    "test": "test"
-  },
   "devDependencies": {
     "chalk": "^2.3.2",
-    "lodash": "^4.17.5",
-    "meta-countup": "^0.1.1",
-    "path-breadcrumb": "^1.0.1"
+    "lodash": "^4.17.5"
   },
   "repository": {
     "type": "git",
