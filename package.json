@@ -1,6 +1,6 @@
 {
   "name": "node-pickfile",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "選んだファイルをコピーして新しいパッケージを作成する",
   "main": "index.js",
   "scripts": {
