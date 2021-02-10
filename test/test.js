@@ -6,7 +6,7 @@ let pick = require('../index');
 // release@list-1.0.1/~
 pick('test/list-1.0.1.txt', {
   prefix: 'release@',
-  savedir: 'pkg'
+  savedir: 'zip'
 });
 
 
