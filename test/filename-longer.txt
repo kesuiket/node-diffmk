@@ -1,0 +1,3 @@
+test/public/images/jiba.jpg
+test/public/html/index.html
+test/public/css/style.css

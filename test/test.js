@@ -29,3 +29,8 @@ pick('test/note/list-1.0.1.txt', {
 pick('test/non-exists.txt', {
   prefix: 'error@'
 });
+
+// ファイル名の長さをチェック
+pick('test/filename-longer.txt', {
+  filename_max: 8
+})

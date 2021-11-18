@@ -19,7 +19,7 @@ module.exports = (listFile, customize = {}) => {
   const options = _.merge({}, defaults, (customize))
   const filename = path.basename(listFile, '.txt')
   const dest = path.join([options.prefix, filename].join(''))
-  const api = init(listFile, dest, cwd, options.savedir)
+  const api = init(listFile, dest, cwd, options.savedir, options)
 
   return api(make, confirm, save, done(filename))
 };
