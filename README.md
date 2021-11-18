@@ -18,10 +18,17 @@ __インストール__
 $ npm install node-pickfile
 ```
 
+## Parameters
+|Name|Format|Default|
+|:-|:-|:-:|
+|prefix|_String_|`pkg@`|
+|savedir|_String_||
+|filename_max|_Integer_|100|
+|exclude_extensions|_Array_|[]|
 
-## 例
+## Example
 
-__ファイルリスト__
+__TEXTFILE__
 
 ```txt
 public/html/index.html
@@ -40,7 +47,7 @@ pick('1.0.0.txt', {     // <
 ```
 
 
-__ディレクトリレイアウト__
+__DIRECTORY LAYOUT__
 
 ```
 .
